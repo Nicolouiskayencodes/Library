@@ -4,6 +4,7 @@ const add = document.querySelector("#add");
 const close = document.querySelector("#close");
 const myLibrary = [];
 let bookshelf = document.querySelector("#bookshelf");
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -11,6 +12,14 @@ function Book(title, author, pages, read) {
   this.read = read;
   this.info = function() {
     console.log(this.title + " by " + this.author + ", " + this.pages + " pages, " + this.read + " yet");
+  }
+}
+
+Book.prototype.toggleRead = function() {
+  if (this.read === "read") {
+    this.read = "not read";
+  } else if (this.read === "not read") {
+    this.read = "read";
   }
 }
 
@@ -53,7 +62,14 @@ function createBookshelf() {
       myLibrary.splice(myLibrary.indexOf(book), 1);
       createBookshelf();
     })
+    let toggle = document.createElement("button");
+    toggle.textContent = "Toggle read";
+    toggle.addEventListener("click", (e) => {
+      book.toggleRead();
+      createBookshelf();
+    })
     row.appendChild(remove);
+    row.appendChild(toggle);
     bookshelf.appendChild(row);
   }
 }
