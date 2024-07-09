@@ -45,6 +45,15 @@ function createBookshelf() {
     let element4 = document.createElement("td");
     element4.textContent = book.read;
     row.appendChild(element4);
+    let remove = document.createElement("button");
+    remove.textContent = "Remove";
+    remove.setAttribute("type", "button");
+    remove.setAttribute("class", "remove");
+    remove.addEventListener("click", (e) => {
+      myLibrary.splice(myLibrary.indexOf(book), 1);
+      createBookshelf();
+    })
+    row.appendChild(remove);
     bookshelf.appendChild(row);
   }
 }
