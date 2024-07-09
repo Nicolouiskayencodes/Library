@@ -112,3 +112,5 @@ close.addEventListener("click", (e) => {
   pagesInput.value = "";
   dialog.close();
 })
+
+createBookshelf();
