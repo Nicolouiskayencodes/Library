@@ -84,9 +84,9 @@ add.addEventListener("click", (e) => {
   const authorInput = document.querySelector("#author");
   const pagesInput = document.querySelector("#pages");
   const readInput = document.querySelector("#read");
-  if (titleInput.value !== "" && authorInput.value !== "" && pagesInput.value !== "" && (readInput.value === "yes" || readInput.value === "no" || readInput.value === "read" || readInput.value === "not read")) {
+  if (titleInput.value !== "" && authorInput.value !== "" && pagesInput.value !== "" && (readInput.value === "yes" || readInput.value === "no" || readInput.value === "read" || readInput.value === "not read" ||readInput.value === "Yes" || readInput.value === "No" || readInput.value === "Read" || readInput.value === "Not read")) {
     let readValue = ""
-    if (readInput.value === "yes" || readInput.value === "read") {
+    if (readInput.value === "yes" || readInput.value === "read" || readInput.value === "Yes" || readInput.value === "Read") {
       readValue = "read";
     } else {
       readValue = "not read";
